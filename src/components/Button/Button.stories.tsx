@@ -8,6 +8,6 @@ export default {
 export const Default = {
   args: {
     disabled: false,
-    children: `I'm a Button`,
+    children: `I'm a Button1`,
   },
 };
