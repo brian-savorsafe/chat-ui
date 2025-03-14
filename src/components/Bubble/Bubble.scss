@@ -1,3 +1,23 @@
+@use '../../styles/tokens.scss' as tokens;
+
 .chat-ui-bubble {
-  
+  .chat-ui-bubble-content {
+    border-radius: var(--chat-ui-bubble-radius, tokens.$bubble-radius);
+
+    &.filled {
+      background-color: var(--chat-ui-bubble-background, tokens.$bubble-background-color);
+    }
+
+    &.outlined {
+      border: 1px solid var(--chat-ui-bubble-border, tokens.$bubble-border-color);
+    }
+
+    &.shadow {
+      box-shadow: var(--chat-ui-bubble-shadow, tokens.$bubble-shadow);
+    }
+
+    &.none {
+      background-color: transparent;
+    }
+  }
 } 

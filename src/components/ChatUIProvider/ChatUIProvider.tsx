@@ -5,8 +5,6 @@ import { defaultTheme } from '../../utils/config';
 import { ChatUIThemeWrapper } from '../ChatUIThemeWrapper';
 import { ChatUIContext, ChatUIContextType } from './ChatUIContext';
 
-import '@radix-ui/themes/styles.css';
-
 export interface ChatUIProviderProps extends ChatUIContextType {
   theme?: ChatUITheme;
   options?: ChatUIOptions;
