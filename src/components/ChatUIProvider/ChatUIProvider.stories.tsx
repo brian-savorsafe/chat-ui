@@ -2,14 +2,15 @@ import { DashIcon, UpdateIcon, UploadIcon } from '@radix-ui/react-icons';
 import { Box, Card, Flex, Inset, SegmentedControl, Text } from '@radix-ui/themes';
 
 import { ChatUIProvider } from '../../index';
-import { Bubble, BubbleContent } from '../Bubble';
+import { Bubble } from '../Bubble';
+import { Sender } from '../Sender';
 
 export default {
   title: 'ChatUIProvider',
   component: ChatUIProvider,
 };
 
-const renderMessage = (content: BubbleContent) => {
+const renderMessage = () => {
   return (
     <span style={{ color: 'red' }}>
       The goal of typography is to relate font size, line height, and line width in a proportional way that maximizes
@@ -95,6 +96,7 @@ export const Default = {
         <Bubble content="Hello" renderMessage={renderMessage} />
         <Bubble content="Hello" placement="end" avatar={false} />
         <Bubble content={renderContent()} variant="none" />
+        <Sender />
       </>
     ),
   },

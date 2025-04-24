@@ -1,0 +1,18 @@
+@use '../../styles/tokens.scss' as tokens;
+
+.chat-ui-sender {
+  border-radius: var(--chat-ui-sender-radius, tokens.$sender-radius);
+  box-shadow: var(--chat-ui-sender-shadow, tokens.$sender-shadow);
+  border: 1px solid var(--chat-ui-sender-border-color, tokens.$sender-border-color);
+
+  .chat-ui-sender-content {
+    display: flex;
+    align-items: flex-end;
+    padding: var(--chat-ui-sender-content-padding-y, tokens.$sender-content-padding-y)
+      var(--chat-ui-sender-content-padding-x, tokens.$sender-content-padding-x);
+  }
+
+  .chat-ui-sender-input {
+    border: none;
+  }
+}

@@ -3,5 +3,11 @@ $bubble-radius: var(--radius-3);
 $bubble-shadow: var(--shadow-3);
 $bubble-border-color: var(--gray-6);
 
+$sender-shadow: var(--shadow-3);
+$sender-radius: var(--radius-3);
+$sender-border-color: var(--gray-6);
+$sender-content-padding-x: 16px;
+$sender-content-padding-y: 12px;
+
 $prompt-hover-background-color: var(--gray-3);
 $prompt-disabled-background-color: var(--gray-4);

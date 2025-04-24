@@ -104,5 +104,9 @@
     "vite-plugin-svgr": "^4.3.0",
     "vitest": "^2.1.8"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.5.3",
+  "dependencies": {
+    "rc-textarea": "^1.10.0",
+    "rc-util": "^5.44.4"
+  }
 }
