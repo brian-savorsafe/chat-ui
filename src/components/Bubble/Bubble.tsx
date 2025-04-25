@@ -15,7 +15,7 @@ type BubbleAvatarProps = ModifiedType & {
 
 export type BubbleContent = string | React.ReactNode;
 
-export type BubbleProps = MergeType<{
+export type BubbleProps = {
   content?: BubbleContent;
   loading?: boolean;
   header?: React.ReactNode;
@@ -25,10 +25,9 @@ export type BubbleProps = MergeType<{
   placement?: 'start' | 'end';
   variant?: 'filled' | 'outlined' | 'shadow' | 'none';
   renderMessage?: (content: BubbleContent) => React.ReactNode | string | null;
-}>;
+};
 
 export const Bubble: React.FC<BubbleProps> = ({
-  theme,
   avatar,
   header,
   footer,
@@ -113,17 +112,15 @@ export const Bubble: React.FC<BubbleProps> = ({
   };
 
   return (
-    <ChatUIThemeWrapper theme={theme}>
-      <Flex mb="4" className="chat-ui-bubble" justify={placement} style={style}>
-        <Flex
-          gap="3"
-          direction={placement === 'start' ? 'row' : 'row-reverse'}
-          width={{ initial: '600px', xs: '320px', sm: '480px', md: '600px', xl: '800px' }}
-        >
-          {renderAvatar()}
-          {renderContentWrapper()}
-        </Flex>
+    <Flex mb="4" className="chat-ui-bubble" justify={placement} style={style}>
+      <Flex
+        gap="3"
+        direction={placement === 'start' ? 'row' : 'row-reverse'}
+        width={{ initial: '600px', xs: '320px', sm: '480px', md: '600px', xl: '800px' }}
+      >
+        {renderAvatar()}
+        {renderContentWrapper()}
       </Flex>
-    </ChatUIThemeWrapper>
+    </Flex>
   );
 };

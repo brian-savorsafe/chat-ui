@@ -1,6 +1,6 @@
 {
   "name": "chat-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library of AI chat UI components.",
   "author": "Brian Ma",
   "license": "MIT",
@@ -106,6 +106,7 @@
   },
   "packageManager": "yarn@4.5.3",
   "dependencies": {
+    "@ant-design/icons": "5.x",
     "rc-textarea": "^1.10.0",
     "rc-util": "^5.44.4"
   }

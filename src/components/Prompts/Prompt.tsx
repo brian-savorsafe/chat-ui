@@ -1,11 +1,8 @@
-import { Avatar, AvatarProps, Box, Card, Flex, Text } from '@radix-ui/themes';
-
-import { MergeType } from '../../types';
-import { ChatUIThemeWrapper } from '../../components/ChatUIThemeWrapper';
+import { Avatar, AvatarProps, Card, Flex, Text } from '@radix-ui/themes';
 
 import './Prompts.scss';
 
-export type PromptProps = MergeType<{
+export type PromptProps = {
   id?: string | number;
   avatar?: AvatarProps;
   label?: React.ReactNode;
@@ -13,10 +10,10 @@ export type PromptProps = MergeType<{
   subItems?: PromptProps[];
   disabled?: boolean;
   onItemClick?: (data: PromptProps) => void;
-}>;
+};
 
 export const Prompt: React.FC<PromptProps> = (props) => {
-  const { theme, avatar, label, description, disabled, subItems, onItemClick } = props;
+  const { avatar, label, description, disabled, subItems, onItemClick } = props;
 
   const renderAvatar = () => {
     if (avatar) {
@@ -81,23 +78,19 @@ export const Prompt: React.FC<PromptProps> = (props) => {
   };
 
   return (
-    <ChatUIThemeWrapper theme={theme}>
-      <span>
-        <Card asChild>
-          <div
-            className={`chat-ui-prompt ${onItemClick && !disabled ? 'clickable' : ''} ${disabled ? 'disabled' : ''}`}
-            onClick={() => onItemClick?.(props)}
-          >
-            <Flex gap="2" align="center">
-              {renderAvatar()}
-              <Flex direction="column" gap="1">
-                {renderLabel(label)}
-                {renderDescription(description)}
-              </Flex>
-            </Flex>
-          </div>
-        </Card>
-      </span>
-    </ChatUIThemeWrapper>
+    <Card asChild>
+      <div
+        className={`chat-ui-prompt ${onItemClick && !disabled ? 'clickable' : ''} ${disabled ? 'disabled' : ''}`}
+        onClick={() => onItemClick?.(props)}
+      >
+        <Flex gap="2" align="center">
+          {renderAvatar()}
+          <Flex direction="column" gap="1">
+            {renderLabel(label)}
+            {renderDescription(description)}
+          </Flex>
+        </Flex>
+      </div>
+    </Card>
   );
 };

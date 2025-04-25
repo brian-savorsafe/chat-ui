@@ -1,18 +1,56 @@
 @use '../../styles/tokens.scss' as tokens;
 
 .chat-ui-sender {
+  position: relative;
   border-radius: var(--chat-ui-sender-radius, tokens.$sender-radius);
   box-shadow: var(--chat-ui-sender-shadow, tokens.$sender-shadow);
   border: 1px solid var(--chat-ui-sender-border-color, tokens.$sender-border-color);
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  &:focus-within {
+    border-color: var(--chat-ui-sender-border-color-focus, tokens.$sender-border-color-focus);
+    box-shadow: var(--chat-ui-sender-focus-shadow, tokens.$sender-focus-shadow);
+  }
 
   .chat-ui-sender-content {
-    display: flex;
-    align-items: flex-end;
+    width: 100%;
     padding: var(--chat-ui-sender-content-padding-y, tokens.$sender-content-padding-y)
       var(--chat-ui-sender-content-padding-x, tokens.$sender-content-padding-x);
   }
 
-  .chat-ui-sender-input {
-    border: none;
+  .chat-ui-recording-icon {
+    width: 1em;
+    height: 1em;
   }
+
+  .chat-ui-sender-input {
+    width: 100%;
+    border: none;
+    align-self: center;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    &:hover::-webkit-scrollbar-thumb {
+      background: #e2e5ee;
+      border-radius: 5px;
+    }
+  }
+}
+
+.chat-ui-sender-header {
+  padding-top: var(--chat-ui-sender-header-padding-y, tokens.$sender-header-padding-y);
+  padding-left: var(--chat-ui-sender-header-padding-x, tokens.$sender-header-padding-x);
+  padding-right: var(--chat-ui-sender-header-padding-x, tokens.$sender-header-padding-x);
+}
+
+.chat-ui-sender-footer {
+  padding-bottom: var(--chat-ui-sender-footer-padding-y, tokens.$sender-footer-padding-y);
+  padding-left: var(--chat-ui-sender-footer-padding-x, tokens.$sender-footer-padding-x);
+  padding-right: var(--chat-ui-sender-footer-padding-x, tokens.$sender-footer-padding-x);
 }

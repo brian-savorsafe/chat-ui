@@ -8,6 +8,15 @@ $sender-radius: var(--radius-3);
 $sender-border-color: var(--gray-6);
 $sender-content-padding-x: 16px;
 $sender-content-padding-y: 12px;
+$sender-border-color-focus: #1677ff;
+$sender-focus-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+0 3px 6px -4px rgba(0, 0, 0, 0.12),
+0 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+$sender-header-padding-x: var(--space-3);
+$sender-header-padding-y: var(--space-3);
+$sender-footer-padding-x: var(--space-3);
+$sender-footer-padding-y: var(--space-3);
 
 $prompt-hover-background-color: var(--gray-3);
 $prompt-disabled-background-color: var(--gray-4);

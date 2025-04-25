@@ -1,19 +1,17 @@
 import React from 'react';
-import { Box, Card, Text } from '@radix-ui/themes';
+import { Box, Text } from '@radix-ui/themes';
 
-import { MergeType } from '../../types';
-import { ChatUIThemeWrapper } from '../../components/ChatUIThemeWrapper';
 import { Prompt, PromptProps } from './Prompt';
 
 import './Prompts.scss';
 
-export type PromptsProps = MergeType<{
+export type PromptsProps = {
   title?: React.ReactNode;
   items: PromptProps[];
   onItemClick?: (item: PromptProps) => void;
-}>;
+};
 
-export const Prompts: React.FC<PromptsProps> = ({ theme, items, title }) => {
+export const Prompts: React.FC<PromptsProps> = ({ items, title }) => {
   const renderTitle = () => {
     let displayTitle = title;
     if (typeof title === 'string') {
@@ -40,11 +38,9 @@ export const Prompts: React.FC<PromptsProps> = ({ theme, items, title }) => {
   };
 
   return (
-    <ChatUIThemeWrapper theme={theme}>
-      <div className="chat-ui-prompts">
-        {renderTitle()}
-        {renderContent()}
-      </div>
-    </ChatUIThemeWrapper>
+    <div className="chat-ui-prompts">
+      {renderTitle()}
+      {renderContent()}
+    </div>
   );
 };

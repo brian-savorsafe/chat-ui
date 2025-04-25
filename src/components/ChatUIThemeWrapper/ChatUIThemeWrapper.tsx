@@ -16,9 +16,5 @@ export const ChatUIThemeWrapper: React.FC<ChatUIThemeWrapperProps> = ({ children
     };
   }, [theme]);
 
-  return (
-    <Theme asChild {...mergedTheme}>
-      {children}
-    </Theme>
-  );
+  return <Theme {...mergedTheme}>{children}</Theme>;
 };

@@ -10,6 +10,8 @@ export default {
   component: ChatUIProvider,
 };
 
+const BubbleList = Bubble.List;
+
 const renderMessage = () => {
   return (
     <span style={{ color: 'red' }}>
@@ -71,32 +73,54 @@ export const Default = {
   args: {
     children: (
       <>
-        <Bubble
-          variant="shadow"
-          placement="end"
-          header="Typography"
-          footer={renderFooter()}
-          content="The goal of typography is to relate font size."
+        <BubbleList>
+          <Bubble
+            variant="shadow"
+            placement="end"
+            header="Typography"
+            footer={renderFooter()}
+            content="The goal of typography is to relate font size."
+          />
+          <Bubble variant="shadow" header={renderHeader()} content="The goal of typography is to relate font size." />
+          <Bubble
+            content="Hello"
+            placement="end"
+            variant="outlined"
+            avatar={{ color: 'orange', variant: 'solid', fallback: <DashIcon /> }}
+          />
+          <Bubble
+            variant="shadow"
+            content="The goal of typography is to relate font size, line height, and line width
+      in a proportional way that maximizes beauty and makes reading easier and
+      more pleasant."
+          />
+          <Bubble
+            content="Hello"
+            placement="end"
+            avatar={{ color: 'crimson', radius: 'full', fallback: <DashIcon /> }}
+          />
+          <Bubble content="Hello" loading avatar={{ color: 'crimson', radius: 'full' }} />
+          <Bubble content="Hello" renderMessage={renderMessage} />
+          <Bubble content="Hello" placement="end" avatar={false} />
+          <Bubble content={renderContent()} variant="none" />
+        </BubbleList>
+        <Sender
+          allowSpeech
+          // header={renderHeader()}
+          // actions={false}
+          // actions={() => {
+          //   return (
+          //     <Flex gap="2">
+          //       <UploadIcon />
+          //       <UpdateIcon />
+          //     </Flex>
+          //   );
+          // }}
+          // footer={renderFooter()}
+          onSubmit={(value) => {
+            console.log('value', value);
+          }}
         />
-        <Bubble variant="shadow" header={renderHeader()} content="The goal of typography is to relate font size." />
-        <Bubble
-          content="Hello"
-          placement="end"
-          variant="outlined"
-          avatar={{ color: 'orange', variant: 'solid', fallback: <DashIcon /> }}
-        />
-        <Bubble
-          variant="shadow"
-          content="The goal of typography is to relate font size, line height, and line width
-		in a proportional way that maximizes beauty and makes reading easier and
-		more pleasant."
-        />
-        <Bubble content="Hello" placement="end" avatar={{ color: 'crimson', radius: 'full', fallback: <DashIcon /> }} />
-        <Bubble content="Hello" loading avatar={{ color: 'crimson', radius: 'full' }} />
-        <Bubble content="Hello" renderMessage={renderMessage} />
-        <Bubble content="Hello" placement="end" avatar={false} />
-        <Bubble content={renderContent()} variant="none" />
-        <Sender />
       </>
     ),
   },

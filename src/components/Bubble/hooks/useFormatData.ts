@@ -4,14 +4,14 @@ import { BubbleListProps, BubbleRoleProps, RolesType } from '../BubbleList';
 
 type BubbleItems = BubbleListProps['items'];
 
-export const useFormatItems = (items: BubbleItems, roles: RolesType) => {
+export const useFormatItems = (items?: BubbleItems, roles?: RolesType) => {
   const formatRoles = useCallback(
     (bubble: BubbleRoleProps, index: number) => {
       if (typeof roles === 'function') {
         return roles(bubble, index);
       }
 
-      return roles[bubble.role] || {};
+      return roles?.[bubble.role] || {};
     },
     [roles],
   );
